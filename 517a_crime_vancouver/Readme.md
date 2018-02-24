@@ -1,27 +1,38 @@
-Goal: Identify and Run Analysis on crime data relating to collisions ...
-Objective: 
+##	Crime in Vancouver
 
-Git Structire:
-	- data
-		// this is the root folder, use this folder to run codes (i.e. $ python code/process.py)
+In this project, we collected crime data records from the Vancouver Open Data Catalogue as instructed by Kaggle. 
 
-		- code (uploaded to github)
-		- raw_data
-		- results
-		- plots
+The original data has 530,652 records from 2003-01-01 to 2017-07-13 with the following features:
 
+TYPE, YEAR, MONTH, DAY, HOUR, MINUTE, HUNDRED_BLOCK, NEIGHBOURHOOD, X, Y, Latitude, Longitude.
 
-- Data_set 
-	- crime.csv ([530652 rows x 12 columns])
+The record consists of 9 different types of crimes in 24 neighborhoods and 21193 street names. 
+
+In this project we train different classifiers on the crime data to identify crimes relating to collisions (Vehicle Collision or Pedestrian Struck with Fatality or Injury) only. 
+
+#### Data preprocessing
+From the 530652 records, we identified 22141 records that are related to collision. We randomly selected 27859 records to create a training set with 50000 records.
+
+The processed data set has the following features:
 	
-	The different columns in the dataset are:  ['TYPE', 'HUNDRED_BLOCK', 'NEIGHBOURHOOD', 'X', 'Y', 'Latitude', 'Longitude', 'DATE', 'DAY_OF_WEEK', 'CLASSIFICATION']
+	-	Neighborhood: 0 to 23
+	-	Latitude: 49.200896849999999 to 49.31334872
+	-	Longitude: -123.223955 to -123.02328940000001
+	-	Year: 2003 to 2017
+	- 	Month: 1 to 12
+	- 	Hour: 0 to 23
+	- 	Minute: 0 to 59
+	- 	Day of Week: 0 to 6
 
-	9 types of crime but we only focus on collision data. (if 'collision', +1, otherwise -1)
-	24 different neighborhoods.
-
-	date/time: save date for visualization purposes only. change date ...
-
-	- crime_processed.csv
-
+#### Code (Python files)
+	- common.py
+		main system file that handles packages, logging and debugging purposes
 	- process.py
-	// 
+		preprocesses the raw data file and creates a csv with the relevant features for training, validation and testing
+	- mapper.py
+		since we have mapped some of the string features into integers, the mapper file preserves these features as a csv to be later used for data visualization
+	- data_analysis.py
+		computes statistics and generates plots for raw and processed data
+	- logistic_regression.py
+		runs logistic regression
+
