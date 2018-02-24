@@ -23,6 +23,7 @@ The processed data set has the following features:
 	- 	Hour: 0 to 23
 	- 	Minute: 0 to 59
 	- 	Day of Week: 0 to 6
+	- 	Day of Month: 1 to 31
 
 #### Code (Python files)
 	- common.py
