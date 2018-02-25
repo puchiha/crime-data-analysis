@@ -4,7 +4,7 @@ In this project, we collected crime data records from the Vancouver Open Data Ca
 
 The original data has 530,652 records from 2003-01-01 to 2017-07-13 with the following features:
 
-TYPE, YEAR, MONTH, DAY, HOUR, MINUTE, HUNDRED_BLOCK, NEIGHBOURHOOD, X, Y, Latitude, Longitude.
+TYPE, YEAR, MONTH, DAY, HOUR, MINUTE, HUNDRED_BLOCK, NEIGHBOURHOOD, X, Y, LATITUDE, LONGITUDE.
 
 The record consists of 9 different types of crimes in 24 neighborhoods and 21193 street names. 
 
