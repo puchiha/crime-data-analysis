@@ -26,6 +26,6 @@ data = data.drop(labels = ['NEIGHBOURHOOD'], axis=1) #'Unnamed: 0',
 data = data.rename(columns = {0 : 'NEIGHBOURHOOD'})
 
 data.to_csv("raw_data/crime_processed_neighbourhood.csv", index_label = False)
-code.to_csv("raw_data/crime_neighbourhood_codes.csv", , index_label = False)
+code.to_csv("raw_data/crime_neighbourhood_codes.csv", index_label = False)
 
 
