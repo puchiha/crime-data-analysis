@@ -5,21 +5,21 @@ from sklearn import metrics
 
 k=10
 kf = KFold(n_splits=k)
-#TODO: load dataset
 
-xIndex = np.arange(data.shape[1]-1)
-yIndex = -1
+data = pd.read_csv("../raw_data/crime_processed.csv").as_matrix()
+X = data[:, :-1]
+Y = data[:, -1]
 
 accuracy_avg = 0
 auc_avg = 0
 for (trainIndex, testIndex) in kf.split(data):
-    logreg = LogisticRegression
-    #TODO: set X and Y indices
-    xTr = data[trainIndex][:,xIndex]
-    yTr = data[trainIndex][:,yIndex]
-    xTe = data[testIndex][:,xIndex]
-    yTe = data[testIndex][:,yIndex]
-    logreg.fit(data[trainIndex][X], data[testIndex][Y])
+    logreg = LogisticRegression()
+    print trainIndex
+    xTr = X[trainIndex]
+    yTr = Y[trainIndex]
+    xTe = X[testIndex]
+    yTe = Y[testIndex]
+    logreg.fit(xTr, yTr)
     preds = logreg.predict(data[testIndex])
     #get classification accuracy
     accuracy = logreg.score(xTe, yTe)
