@@ -30,3 +30,8 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('Logistic Regression ROC Curve')
 plt.show()
+
+'''
+Avg accuracy: 0.601822160415
+Area under roc curve: 0.70335792905
+'''
