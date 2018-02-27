@@ -1,53 +1,25 @@
-<<<<<<< HEAD
 NEIGHBOURHOOD,COUNT
-0,Arbutus Ridge,688
-1,Central Business District,9770
-2,Dunbar-Southlands,736
-3,Fairview,3200
-4,Grandview-Woodland,2869
-5,Hastings-Sunrise,2343
-6,Kensington-Cedar Cottage,2990
-7,Kerrisdale,914
-8,Killarney,1204
-9,Kitsilano,2571
-10,Marpole,1672
-11,Mount Pleasant,3414
-12,Musqueam,80
-13,Oakridge,883
-14,Renfrew-Collingwood,2911
-15,Riley Park,1391
-16,Shaughnessy,861
-17,South Cambie,560
-18,Stanley Park,450
-19,Strathcona,2420
-20,Sunset,2280
-21,Victoria-Fraserview,1428
-22,West End,3669
-23,West Point Grey,696
-=======
-,NEIGHBOURHOOD,COUNT
-0,Arbutus Ridge,650
-1,Central Business District,9844
-2,Dunbar-Southlands,723
-3,Fairview,3089
-4,Grandview-Woodland,2846
-5,Hastings-Sunrise,2364
-6,Kensington-Cedar Cottage,2999
-7,Kerrisdale,870
-8,Killarney,1211
-9,Kitsilano,2635
-10,Marpole,1674
-11,Mount Pleasant,3425
-12,Musqueam,94
-13,Oakridge,851
-14,Renfrew-Collingwood,3039
-15,Riley Park,1452
-16,Shaughnessy,864
-17,South Cambie,531
-18,Stanley Park,448
-19,Strathcona,2458
-20,Sunset,2272
-21,Victoria-Fraserview,1403
-22,West End,3621
-23,West Point Grey,637
->>>>>>> Milestone1
+0,Arbutus Ridge,677
+1,Central Business District,9871
+2,Dunbar-Southlands,733
+3,Fairview,3146
+4,Grandview-Woodland,2844
+5,Hastings-Sunrise,2325
+6,Kensington-Cedar Cottage,3002
+7,Kerrisdale,861
+8,Killarney,1172
+9,Kitsilano,2630
+10,Marpole,1713
+11,Mount Pleasant,3419
+12,Musqueam,93
+13,Oakridge,927
+14,Renfrew-Collingwood,3032
+15,Riley Park,1402
+16,Shaughnessy,892
+17,South Cambie,540
+18,Stanley Park,438
+19,Strathcona,2383
+20,Sunset,2308
+21,Victoria-Fraserview,1374
+22,West End,3588
+23,West Point Grey,630
