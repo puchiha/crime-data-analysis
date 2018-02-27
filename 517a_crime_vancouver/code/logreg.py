@@ -8,8 +8,8 @@ k=10
 kf = KFold(n_splits=k)
 
 data = pd.read_csv("raw_data/crime_processed_neighbourhood.csv").as_matrix()
-X = data[:, [0,1,2,3,4,5,6,7,8,10]]
-Y = data[:, 9]
+X = data[:, [0,1,2,3,4,5,6,7,9]]
+Y = data[:, 8]
 
 logreg = LogisticRegression()
 accuracy_avg = cross_val_score(logreg, X, Y, cv=10)

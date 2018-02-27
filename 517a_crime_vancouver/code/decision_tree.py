@@ -1,13 +1,8 @@
-<<<<<<< HEAD
+
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.cross_validation import  cross_val_score
-=======
-from sklearn import tree, metrics
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import  cross_val_score, train_test_split
-from sklearn.metrics import accuracy_score, confusion_matrix
->>>>>>> Milestone1
+from sklearn.metrics import accuracy_score
 from common import *
 
 def get_crime_data():
@@ -19,28 +14,13 @@ def get_crime_data():
 		
 	return df
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Milestone1
 def d_tree():
 	df = get_crime_data()
-	features = list(df.columns[:9])
+	features = list(df.columns[:10])
 	y = df["CLASSIFICATION"]
+	del features[8]
 	X = df[features]
-<<<<<<< HEAD
-	#	x_train,x_test,y_train,y_test = cross_validation.train_test_split(X,y,test_size=0.4,random_state=0)
-	
-	dt = DecisionTreeClassifier(min_samples_split = 20, random_state = 99)
-	print("-- 10-fold cross-validation --")
-	cv_dt = cross_val_score(dt, X, y, cv=10)
-	fit_dt = dt.fit(X, y)
-	print("mean: {:.3f} (std: {:.3f})".format(cv_dt.mean(),
-                                          cv_dt.std()))
-                                         
-	
-	#visualize_tree(dt, features)
-=======
 	
 	xTr,xTe,yTr,yTe = train_test_split(X,y,test_size=0.4,random_state=0)
 	
@@ -64,8 +44,7 @@ def d_tree():
 	-- 10-fold cross-validation --
 	mean: 0.876 (std: 0.007)
 	'''
->>>>>>> Milestone1
 	
 
 if __name__ == "__main__":
-    d_tree() 
+	d_tree() 
