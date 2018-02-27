@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 NEIGHBOURHOOD,COUNT
 0,Arbutus Ridge,688
 1,Central Business District,9770
@@ -23,3 +24,30 @@ NEIGHBOURHOOD,COUNT
 21,Victoria-Fraserview,1428
 22,West End,3669
 23,West Point Grey,696
+=======
+,NEIGHBOURHOOD,COUNT
+0,Arbutus Ridge,650
+1,Central Business District,9844
+2,Dunbar-Southlands,723
+3,Fairview,3089
+4,Grandview-Woodland,2846
+5,Hastings-Sunrise,2364
+6,Kensington-Cedar Cottage,2999
+7,Kerrisdale,870
+8,Killarney,1211
+9,Kitsilano,2635
+10,Marpole,1674
+11,Mount Pleasant,3425
+12,Musqueam,94
+13,Oakridge,851
+14,Renfrew-Collingwood,3039
+15,Riley Park,1452
+16,Shaughnessy,864
+17,South Cambie,531
+18,Stanley Park,448
+19,Strathcona,2458
+20,Sunset,2272
+21,Victoria-Fraserview,1403
+22,West End,3621
+23,West Point Grey,637
+>>>>>>> Milestone1

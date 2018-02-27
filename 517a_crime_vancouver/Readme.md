@@ -37,3 +37,23 @@ The processed data set has the following features:
 	- logistic_regression.py
 		runs logistic regression
 
+
+##### How to Run Code
+	- Run all code from the root directory with subdirectories for code and raw_data
+	- First run the process.py on the original crime.csv data set in raw_data folder.
+	- Once process.py is completed, run mapper.py to create a map between the raw data set and features.
+	- Run any other ML technique file.
+
+
+##### Results for Milestone 1
+	Logistic Regression
+		- Avg accuracy: 0.601822160415
+		- Area under roc curve: 0.70335792905
+
+	Decision Tree
+		- Train Accuracy ::  0.9437
+		- Test Accuracy  ::  0.87695
+		-- 10-fold cross-validation --
+		- mean: 0.876 (std: 0.007)
+		
+
