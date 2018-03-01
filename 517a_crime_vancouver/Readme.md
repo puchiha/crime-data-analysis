@@ -39,8 +39,10 @@ The processed data set has the following features:
 
 
 ##### How to Run Code
+	- Download crime.csv dataset from https://www.kaggle.com/wosaku/crime-in-vancouver/downloads/crime.csv and place it in raw_data folder.
+	- Fork or download zip file from this repository.
 	- Run all code from the root directory with subdirectories for code and raw_data
-	- First run the process.py on the original crime.csv data set in raw_data folder.
+	- First run the process.py on the original crime.csv data set in raw_data folder
 	- Once process.py is completed, run mapper.py to create a map between the raw data set and features.
 	- Run any other ML technique file.
 
