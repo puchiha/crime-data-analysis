@@ -68,7 +68,7 @@ The processed data set has the following features:
 		-- 10-fold cross-validation --
 		- Avg Accuracy: 0.5357
 		
-		Linear Kernel (MAx iterations=auto)
+		Linear Kernel (Max iterations=auto)
 		- Test Accuracy  :: 0.61814764783
 		-- 10-fold cross-validation --
 		- Avg Accuracy: 0.60192104452 
