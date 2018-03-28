@@ -57,5 +57,18 @@ The processed data set has the following features:
 		- Test Accuracy  ::  0.87695
 		-- 10-fold cross-validation --
 		- mean: 0.876 (std: 0.007)
-		
 
+##### Results for Milestone 2
+
+	Support Vector Machines
+	        We have used an RBF kernel as well as a linear kernel
+		
+		RBF Kernel (Max iterations=1000, degree=2):
+		- Test Accuracy  ::   0.60577
+		-- 10-fold cross-validation --
+		- Avg Accuracy: 0.5357
+		
+		Linear Kernel (MAx iterations=auto)
+		- Test Accuracy  :: 0.61814764783
+		-- 10-fold cross-validation --
+		- Avg Accuracy: 0.60192104452 
