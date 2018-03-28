@@ -16,9 +16,12 @@ def get_crime_data():
 
 def d_tree():
 	df = get_crime_data()
-	features = list(df.columns[:9])
-	y = df["CLASSIFICATION"]
-	X = df[features]
+	X = data[:, [0,1,2,3,4,5,6,7,9]]
+	y = data[:, 8]
+	
+	# features = list(df.columns[:9])
+	# y = df["CLASSIFICATION"]
+	# X = df[features]
 	
 	xTr,xTe,yTr,yTe = train_test_split(X,y,test_size=0.4,random_state=0)
 	
