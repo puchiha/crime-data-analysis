@@ -1,8 +1,7 @@
-
-from sklearn import tree
+from sklearn import tree, metrics
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import  cross_val_score, train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix
 from common import *
 
 def get_crime_data():
@@ -17,9 +16,9 @@ def get_crime_data():
 
 def d_tree():
 	df = get_crime_data()
-	features = list(df.columns[:10])
+	
+	features = list(df.columns[:9])
 	y = df["CLASSIFICATION"]
-	del features[8]
 	X = df[features]
 	
 	xTr,xTe,yTr,yTe = train_test_split(X,y,test_size=0.4,random_state=0)
@@ -47,4 +46,4 @@ def d_tree():
 	
 
 if __name__ == "__main__":
-	d_tree() 
+    d_tree() 

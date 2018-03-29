@@ -60,6 +60,22 @@ The processed data set has the following features:
 
 ##### Results for Milestone 2
 
+	Gaussian Process Classifier
+		Running on a complete dataset takes ~10-15 mins
+
+		kernel = gp.kernels.ConstantKernel() + \
+				gp.kernels.Matern(length_scale=2, nu=3/2) + \
+				gp.kernels.WhiteKernel(noise_level=1)
+
+		Accuracy: 82.30% with entire dataset
+
+		kernel = gp.kernels.RBF(np.ones((X.shape[1], 1))) \
+				 * gp.kernels.ConstantKernel() \
+			     + gp.kernels.WhiteKernel()	
+
+		Accuracy: 66.00% with 1000 data points
+
+
 	Support Vector Machines
 	        We have used an RBF kernel as well as a linear kernel
 		
