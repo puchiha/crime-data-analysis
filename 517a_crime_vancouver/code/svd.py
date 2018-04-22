@@ -14,7 +14,7 @@ data = raw_data.drop('CLASSIFICATION', axis=1)
 
 #fit svd transform for desired number of dims
 np.random.seed(9)
-num_dim=2
+num_dim=5
 svd = TruncatedSVD(num_dim)
 svd.fit(data)
 #print svd.singular_values_/np.sum(svd.singular_values_)
@@ -27,7 +27,7 @@ new_data = new_data.reset_index(drop=True)
 raw_data = raw_data.reset_index(drop=True)
 new_data['CLASSIFICATION'] = raw_data['CLASSIFICATION']
 
-np.savetxt('raw_data/svd'+str(num_dim)+'.csv', new_data, delimiter=',')
+new_data.to_csv('raw_data/svd'+str(num_dim)+'.csv', index=False)
 
 #visualize
 # plt.figure()
@@ -37,6 +37,6 @@ np.savetxt('raw_data/svd'+str(num_dim)+'.csv', new_data, delimiter=',')
 # plt.ylabel('Dimension 2')
 # plt.show()
 
-plt.figure()
-pd.plotting.parallel_coordinates(new_data, 'CLASSIFICATION')
-plt.show()
+# plt.figure()
+# pd.plotting.parallel_coordinates(new_data, 'CLASSIFICATION')
+# plt.show()
