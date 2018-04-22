@@ -8,8 +8,9 @@ import keras.layers
 import keras.layers.merge
 from keras.layers import Input, Embedding, Reshape, Merge, Flatten, Activation, concatenate
 from keras.models import Model
-from keras.losses import mean_squared_error
+from keras.losses import mean_absolute_error, mean_squared_error, binary_crossentropy, categorical_crossentropy
 from keras.models import load_model
+from keras import regularizers
 import numpy as np
 import csv
 import os
@@ -100,14 +101,15 @@ x9 = Input(shape = (1,), dtype='float32', name = 'x9')
 x = concatenate([x1,x2,x3,x4,x5,x6,x7,x8,x9])
 
 
-h1 = Dense(10, activation = 'elu')(x)
 
-out = Dense(1, activation = 'elu')(h1)
+h1 = Dense(10, activation = 'relu')(x)
+
+out = Dense(1, activation = 'relu', kernel_regularizer=regularizers.l2(0.01))(h1)
 
 model = Model(inputs=[x1, x2, x3, x4, x5, x6, x7, x8, x9], outputs=[out])
-model.compile(loss=mean_squared_error , optimizer='adagrad', metrics = ['accuracy'])
+model.compile(loss=mean_squared_error, optimizer='adagrad', metrics = ['accuracy'])
 
-model.fit_generator(data_generator(100), steps_per_epoch=17, epochs=250)
+model.fit_generator(data_generator(100), steps_per_epoch=50, epochs=100)
 
 #--------------------------------------------------------------------------------------PREDICT--------------------------------------------------------------------------
 preds = []
