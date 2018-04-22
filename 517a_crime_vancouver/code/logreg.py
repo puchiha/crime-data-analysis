@@ -7,9 +7,12 @@ import matplotlib.pyplot as plt
 k=10
 kf = KFold(n_splits=k)
 
-data = pd.read_csv("raw_data/crime_processed_neighbourhood.csv").as_matrix()
-X = data[:, [0,1,2,3,4,5,6,7,9]]
-Y = data[:, 8]
+data = pd.read_csv("raw_data/svd1.csv")
+X = data.drop('CLASSIFICATION', axis=1).as_matrix()
+Y = data['CLASSIFICATION'].as_matrix()
+
+print X
+print Y
 
 logreg = LogisticRegression()
 accuracy_avg = cross_val_score(logreg, X, Y, cv=10)

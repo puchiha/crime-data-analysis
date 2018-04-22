@@ -14,7 +14,7 @@ data = raw_data.drop('CLASSIFICATION', axis=1)
 
 #fit svd transform for desired number of dims
 np.random.seed(9)
-num_dim=5
+num_dim=1
 svd = TruncatedSVD(num_dim)
 svd.fit(data)
 #print svd.singular_values_/np.sum(svd.singular_values_)
