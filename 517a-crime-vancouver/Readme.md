@@ -1,14 +1,28 @@
 ##	Crime in Vancouver
 
-In this project, we collected crime data records from the Vancouver Open Data Catalogue as instructed by Kaggle. 
+In this project, we collected crime data records from the Vancouver Open Data Catalogue as instructed by Kaggle.
+Th dataset can be forund here: https://www.kaggle.com/wosaku/crime-in-vancouver/data
 
 The original data has 530,652 records from 2003-01-01 to 2017-07-13 with the following features:
 
+#### Data Schema:
+
+Columns:
 TYPE, YEAR, MONTH, DAY, HOUR, MINUTE, HUNDRED_BLOCK, NEIGHBOURHOOD, X, Y, LATITUDE, LONGITUDE.
 
 The record consists of 9 different types of crimes in 24 neighborhoods and 21193 street names. 
 
 In this project we train different classifiers on the crime data to identify crimes relating to collisions (Vehicle Collision or Pedestrian Struck with Fatality or Injury) only. 
+
+#### Initial Data Analysis:
+
+**data_analysis.py**
+
+This files provides all the necessary functions to generate initial results from the dataset.
+
+Running the analysis function inside data_analysis.py generates the different types of columns and the different types of criminal activities reported.
+
+
 
 #### Data preprocessing
 From the 530652 records, we identified 22141 records that are related to collision. We randomly selected 27859 records to create a training set with 50000 records.
