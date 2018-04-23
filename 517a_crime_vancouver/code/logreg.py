@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 k=10
 kf = KFold(n_splits=k)
 
-data = pd.read_csv("raw_data/svd1.csv")
+data = pd.read_csv("raw_data/svd2.csv")
 X = data.drop('CLASSIFICATION', axis=1).as_matrix()
 Y = data['CLASSIFICATION'].as_matrix()
 
