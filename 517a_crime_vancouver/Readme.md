@@ -102,3 +102,18 @@ The processed data set has the following features:
 		- Test Accuracy  :: 0.61814764783
 		-- 10-fold cross-validation --
 		- Avg Accuracy: 0.60192104452 
+		
+#### Results for Milestone 3
+
+	Dimension reduction with SVD and PCA
+		To determine how many dimensions to keep, we ran sklearn's PCA function on the data and obtained
+		the following singular values:
+		
+		([ 4243.96677391,  1957.03544145,  1637.15463762,  1422.46365739,
+	         984.37494722, 761.01776584, 440.7575214 , 8.68588571, 4.91529107])
+		 
+		Based on these results we tried reducing the dataset to 5 dimensions and to 2 dimensions using SVD.
+		The file code/svd.py does this. We found that our linear regression classifier performed equally
+		well with a 2-dimensional transformed dataset. In 10-fold cross-validation it achieved 59% average 
+		accuracy with an area under the roc curve of .72. 
+
