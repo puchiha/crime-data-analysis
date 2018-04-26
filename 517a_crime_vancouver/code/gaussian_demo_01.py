@@ -18,12 +18,13 @@ from sklearn.gaussian_process.kernels import RBF, Matern, WhiteKernel, ConstantK
 from sklearn.utils import shuffle
 
 def get_crime_data():
-	file = '../raw_data/crime_processed_neighbourhood.csv'
+	file = 'raw_data/crime_processed_neighbourhood.csv'
+	# file='raw_data/svd2.csv'
 	try:
 		df = pd.read_csv(file)
 	except:
 		exit( 'no training data' )
-		
+
 	return shuffle(df)
 
 
@@ -31,15 +32,21 @@ def g_process():
 	# data = get_crime_data().as_matrix()
 	# X = data[:, [1,2,3,4,5,6,7,9]]
 	# y = data[:,8]
-	dToy = get_crime_data().head(100).as_matrix()
-	X = dToy[:, [1,2,3,4,5,6,7,9]]
-	X = dToy[:, [3,4]]
-	y = dToy[:, 8]
+	# dToy = get_crime_data().head(100).as_matrix()
+	# X = dToy[:, [1,2,3,4,5,6,7,9]]
+	# X = dToy[:, [3,4]]
+	# y = dToy[:, 8]
+	data= get_crime_data()
+	X = data.drop('CLASSIFICATION', axis=1)
+	y = data['CLASSIFICATION']
+	X=X.head(100).as_matrix()
+	y=y.head(100).as_matrix()
+	print y
 
 	xTr, xTe, yTr, yTe = train_test_split(X, y, test_size=0.15)
 	#kernel = gp.kernels.RBF(np.ones((X.shape[1], 1))) \
 	#    * gp.kernels.ConstantKernel() \
-	#    + gp.kernels.WhiteKernel()	
+	#    + gp.kernels.WhiteKernel()
 
 	kernel = gp.kernels.ConstantKernel() + gp.kernels.Matern(length_scale=2, nu=3/2) + gp.kernels.WhiteKernel(noise_level=1)
 
@@ -71,9 +78,9 @@ def g_process():
 	prob_grid = clf.predict_proba(grid_data)
 
 	#prob_grid = prob_grid.reshape((f0.shape[0], f0.shape[1],-1))
-	
+
 	print prob_grid.shape, '\n --- \n' ,prob_grid.squeeze().shape
-	
+
 	plt.figure(figsize=(6, 6))
 	plt.imshow(prob_grid.squeeze(), extent=(f0_min, f0_max, f1_min, f1_max),
 	           origin='lower')
@@ -84,4 +91,4 @@ def g_process():
 	plt.show()
 
 if __name__ == "__main__":
-    g_process() 
+    g_process()
