@@ -102,3 +102,14 @@ The processed data set has the following features:
 		- Test Accuracy  :: 0.61814764783
 		-- 10-fold cross-validation --
 		- Avg Accuracy: 0.60192104452 
+
+
+##### Results for Milestone 3
+
+	Neural Network
+	
+
+
+
+
+
