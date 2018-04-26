@@ -34,7 +34,7 @@ import pandas as pd
 #     else:
 #         y.append(0)
 
-data = pd.read_csv("/Users/puchiha/Documents/GitHub/crime-data-analysis/517a-crime-vancouver/raw-data/nn_processed.csv").as_matrix()
+data = pd.read_csv("/Users/puchiha/Documents/GitHub/crime_data_analysis/517a_crime_vancouver/raw_data/nn_processed.csv").as_matrix()
 #X = data[:, [0,1,2,3,4,5,6,7,9]]
 X1 = data[:, 0]
 X2 = data[:, 1]
@@ -110,7 +110,7 @@ model = Model(inputs=[x1, x2, x3, x4, x5, x6, x7, x8, x9], outputs=[out])
 model.compile(loss=mean_squared_error, optimizer='adagrad', metrics = ['accuracy'])
 
 model.fit_generator(data_generator(100), steps_per_epoch=50, epochs=100)
-
+print(model.summary())
 #--------------------------------------------------------------------------------------PREDICT--------------------------------------------------------------------------
 preds = []
 for i in range(0,len(X1)):
