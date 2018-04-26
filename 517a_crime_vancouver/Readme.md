@@ -107,6 +107,7 @@ The processed data set has the following features:
 ##### Results for Milestone 3
 
 	Neural Network
+		Training using 
 	1/50 [..............................] - ETA: 0s - loss: 0.0074 - acc: 1.0000
 	3/50 [>.............................] - ETA: 1s - loss: 0.0074 - acc: 1.0000
 	20/50 [===========>..................] - ETA: 0s - loss: 0.0077 - acc: 0.9995

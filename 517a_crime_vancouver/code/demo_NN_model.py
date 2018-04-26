@@ -102,9 +102,9 @@ x = concatenate([x1,x2,x3,x4,x5,x6,x7,x8,x9])
 
 
 
-h1 = Dense(10, activation = 'relu')(x)
+h1 = Dense(10, activation = 'sigmoid')(x)
 
-out = Dense(1, activation = 'relu', kernel_regularizer=regularizers.l2(0.01))(h1)
+out = Dense(1, activation = 'sigmoid', kernel_regularizer=regularizers.l2(0.01))(h1)
 
 model = Model(inputs=[x1, x2, x3, x4, x5, x6, x7, x8, x9], outputs=[out])
 model.compile(loss=mean_squared_error, optimizer='adagrad', metrics = ['accuracy'])
