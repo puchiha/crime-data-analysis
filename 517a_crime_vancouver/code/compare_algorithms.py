@@ -31,7 +31,8 @@ seed = 7
 models = []
 models.append(('LR', LogisticRegression()))
 models.append(('LDA', LinearDiscriminantAnalysis()))
-#models.append(('GP', GaussianProcessClassifier()))
+#models.append(('GP', GaussianProcessClassifier(	kernel = gp.kernels.ConstantKernel() + gp.kernels.Matern(length_scale=2, nu=3/2) + gp.kernels.WhiteKernel(noise_level=1)
+)))
 models.append(('KNN', KNeighborsClassifier()))
 models.append(('D-Tree', DecisionTreeClassifier()))
 models.append(('NB', GaussianNB()))

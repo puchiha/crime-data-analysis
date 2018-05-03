@@ -3,20 +3,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import KFold, cross_val_score, train_test_split
 from sklearn import metrics
 import matplotlib.pyplot as plt
-plotfig = False
-k=10
-kf = KFold(n_splits=k)
 
-#<<<<<<< HEAD:517a-crime-vancouver/code/logreg.py
+plotfig = False
+k = 10
+kf = KFold(n_splits = k)
+
 data = pd.read_csv("../raw_data/crime_processed_neighbourhood.csv").as_matrix()
 X = data[:, [0,1,2,3,4,5,6,7,9]]
 Y = data[:, 8]
-#=======
+#	------- using SVD DATA ----------
+
 #data = pd.read_csv("raw_data/svd1.csv")
 #X = data.drop('CLASSIFICATION', axis=1).as_matrix()
 #Y = data['CLASSIFICATION'].as_matrix()
-
-#>>>>>>> dim_reduction:517a_crime_vancouver/code/logreg.py
 
 logreg = LogisticRegression()
 accuracy_avg = cross_val_score(logreg, X, Y, cv=10)
@@ -24,7 +23,6 @@ accuracy_avg = cross_val_score(logreg, X, Y, cv=10)
 print 'Evaluated logistic regression with '+str(k)+'-fold cv'
 print 'Avg accuracy:', np.mean(accuracy_avg)
 
-#plot roc curve
 xTr, xTe, yTr, yTe = train_test_split(X, Y, test_size=0.1)
 preds = logreg.fit(xTr, yTr).decision_function(xTe)
 fpr, tpr, thresholds = metrics.roc_curve(yTe, preds)
@@ -41,6 +39,8 @@ if pvalue >= 0.05:
 	print('LogisticRegression is a good predictor for classification')
 else:
 	print('LogisticRegression is a bad predictor for classification')
+
+#	------- plots
 if plotfig:
 	plt.figure()
 	plt.plot(fpr, tpr)

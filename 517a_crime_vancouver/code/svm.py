@@ -5,20 +5,24 @@ import matplotlib.pyplot as plt
 from sklearn import svm
 import pandas as pd
 import numpy as np
+
 k=10
 kf = KFold(n_splits=k)
 
-data = pd.read_csv("../raw_data/crime_processed_neighbourhood.csv").as_matrix()
+data = pd.read_csv("../raw_data/crime_processed_neighbourhood.csv")
+data = data.sample(50000).as_matrix()
+#data = data.as_matrix()
 #data = data.sample(40000).as_matrix()
+
 X = data[:, [0,1,2,3,4,5,6,7,9]]
 Y = data[:, 8]
 
-plotfig = True
+plotfig = False
 
 #--------------------------------USING an RBF kernel--------------------------------
 
 
-clf = svm.SVC(kernel='rbf',max_iter=1000,degree=2)
+clf = svm.SVC(kernel='poly',max_iter=1000,degree=2)
 print "Training SVM classifier"
 print "Using a RBF kernel "
 

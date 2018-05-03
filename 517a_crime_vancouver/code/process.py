@@ -19,7 +19,7 @@ def _lower(df,columns):
     return df
 
 def category(type):
-    if 'Collision' in type:
+    if 'Homicide' in type or 'Fatality' in type:
         return 1
     else:
         return -1 
@@ -32,7 +32,7 @@ def time_category(x, type):
         return x[1]
         
 def pack():
-    df = pd.read_csv("raw_data/crime.csv")
+    df = pd.read_csv("../raw_data/crime.csv")
     df = df.dropna(subset = ['YEAR', 'MONTH', 'DAY', 'HOUR', 'MINUTE'])
     df['DATE'] = df.YEAR.astype('str').map(str) + '/' + df.MONTH.astype('str') + '/' +df.DAY.astype('str') + ' ' + df.HOUR.astype('str') + ':' + df.MINUTE.astype('str')
     df.DATE = df.DATE.apply(pd.to_datetime).dt.date
@@ -48,9 +48,9 @@ def pack():
     df = df.drop(labels=['DATE','HOUR', 'MINUTE', 'HUNDRED_BLOCK', 'X', 'Y', 'TYPE', 'TIME'], axis = 1)
     class1 = df[df.CLASSIFICATION == 1]
     class2 = df[df.CLASSIFICATION == -1]
-    class2 = class2.sample(27859)
+    class2 = class2.sample(49526)
     df = pd.concat([class1, class2])
-    df.to_csv('raw_data/crime_processed.csv', index_label = False)
-
+    df.to_csv('../raw_data/crime_processed.csv', index_label = False)
+    print ('\n DONE \n --x--')
 if __name__ == "__main__":
     pack()

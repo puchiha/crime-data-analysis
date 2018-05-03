@@ -15,7 +15,7 @@ def _mapper(df, index_col, count_name = "COUNT"):
 
 index_column = ['NEIGHBOURHOOD']
 
-data = pd.read_csv("raw_data/crime_processed.csv")
+data = pd.read_csv("../raw_data/crime_processed.csv")
 df,code = _mapper(data, index_column)
 data = pd.concat([data,df], axis = 1)
 
@@ -25,7 +25,7 @@ data = data.drop(labels = ['NEIGHBOURHOOD'], axis=1) #'Unnamed: 0',
 
 data = data.rename(columns = {0 : 'NEIGHBOURHOOD'})
 
-data.to_csv("raw_data/crime_processed_neighbourhood.csv", index_label = False)
-code.to_csv("raw_data/crime_neighbourhood_codes.csv", index_label = False)
+data.to_csv("../raw_data/crime_processed_neighbourhood.csv", index_label = False)
+code.to_csv("../raw_data/crime_neighbourhood_codes.csv", index_label = False)
 
 
