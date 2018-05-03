@@ -225,13 +225,13 @@ The processed data set has the following features:
 	The models were ran 10 times using 10 fold CV (except for Neural Network). The presented values are the average values of these runs. 
 
 	Model:	mean		(std dev)	tic-toc			t-statistic 	p-value			good/bad classifier
-	LR :	0.489700	(0.195078)	3.755792 s 		-7.64033		2.3653e-14			bad
-	KNN:	0.516080	(0.253102)	56.94244 s 		NA 				NA 					NA
-	D-Tree:	0.733000	(0.009000)	3.303621 s 		-1.743776		0.081206			good
-	NB:		0.502935	(0.253945)	0.199569 s 		NA 				NA 					NA
-	SVM:	0.490912	(0.297442)	221.1248 s 		4.78421	 		1.7193e-06			bad
-	GP:		0.666700	(NA)		462.3874 s		-1.08796		0.28111				good
-	NN:		0.749000	(NA)		770.2342 s 		254.8775		0.25079				good
+	LR :	0.489700	(0.195078)	3.755792 s 		-7.64033	2.3653e-14			bad
+	KNN:	0.516080	(0.253102)	56.94244 s 		NA 			NA 					NA
+	D-Tree:	0.733000	(0.009000)	3.303621 s 		-1.743776	0.081206			good
+	NB:	0.502935	(0.253945)	0.199569 s 		NA 			NA 					NA
+	SVM:	0.490912	(0.297442)	221.1248 s 		4.78421	 	1.7193e-06			bad
+	GP:		0.666700	(NA)		462.3874 s		-1.08796	0.28111				good
+	NN:		0.749000	(NA)		770.2342 s 		254.8775	0.25079				good
 
 
 
