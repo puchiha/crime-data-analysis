@@ -10,26 +10,20 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.svm import SVC
 from time import time
+from scipy.stats import ttest_ind
 
-# load dataset
-# url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
-# names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
-# dataframe = pandas.read_csv(url, names=names)
-# array = dataframe.values
-# X = array[:,0:8]
-# Y = array[:,8]
-data = pd.read_csv("raw_data/nn_processed.csv").as_matrix()
-#data = data.sample(40000).as_matrix()
-#print len(data[0])
+
+data = pd.read_csv("../raw_data/nn_processed.csv").as_matrix()
 X = data[:, [0,1,2,3,4,5,6,7,9]]
 Y = data[:, 8]
 
+plotfig = False
 
 # prepare configuration for cross validation test harness
 seed = 7
 # prepare models
 models = []
-models.append(('LR', LogisticRegression()))
+models.append(('LR ', LogisticRegression()))
 models.append(('LDA', LinearDiscriminantAnalysis()))
 #models.append(('GP', GaussianProcessClassifier()))
 models.append(('KNN', KNeighborsClassifier()))
@@ -54,10 +48,11 @@ for name, model in models:
 	print(msg)
 
 # boxplot algorithm comparison
-fig = plt.figure()
-fig.suptitle('Algorithm Comparison')
-ax = fig.add_subplot(111)
-plt.boxplot(results)
-ax.set_xticklabels(names)
-#plt.show()
-plt.savefig('compare_results.png')
+if plotfig:
+	fig = plt.figure()
+	fig.suptitle('Algorithm Comparison')
+	ax = fig.add_subplot(111)
+	plt.boxplot(results)
+	ax.set_xticklabels(names)
+	#plt.show()
+	plt.savefig('compare_results.png')

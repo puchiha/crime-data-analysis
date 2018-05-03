@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 from sklearn.decomposition import TruncatedSVD #does not recenter data
 
-raw_data = pd.read_csv("raw-data/crime_processed_neighbourhood.csv")
+raw_data = pd.read_csv("raw_data/crime_processed_neighbourhood.csv")
 #exclude classification column
 data = raw_data.drop('CLASSIFICATION', axis=1)
 

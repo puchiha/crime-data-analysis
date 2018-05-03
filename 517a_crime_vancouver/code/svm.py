@@ -10,13 +10,12 @@ kf = KFold(n_splits=k)
 
 data = pd.read_csv("../raw_data/crime_processed_neighbourhood.csv").as_matrix()
 #data = data.sample(40000).as_matrix()
-print len(data[0])
 X = data[:, [0,1,2,3,4,5,6,7,9]]
 Y = data[:, 8]
 
+plotfig = True
 
 #--------------------------------USING an RBF kernel--------------------------------
-
 
 
 clf = svm.SVC(kernel='rbf',max_iter=1000,degree=2)
@@ -35,14 +34,30 @@ print "predicting:"
 preds =  clf.predict(xTe)
 print "ROC_AUC_SCORE: ", metrics.roc_auc_score(yTe,preds)
 
+
 fpr, tpr, thresholds = metrics.roc_curve(yTe, preds)
 roc_auc = metrics.auc(fpr, tpr)
+#	---- STAT TEST ----
+from scipy.stats import ttest_ind
+results = pd.DataFrame({'preds': preds, 'yTe': yTe})
 
-plt.figure()
-plt.plot(fpr, tpr) 
-plt.plot([0,1], [0,1], color='grey', linestyle='--') 
-plt.xlabel('False Positive Rate') 
-plt.ylabel('True Positive Rate') 
-plt.title('SVM ROC Curve')
-plt.show() 
+value, pvalue = ttest_ind(preds, yTe, equal_var = True)
+print (value, pvalue)
+if pvalue >= 0.05:
+	print('SVM is a good predictor for classification')
+else:
+	print('SVM is a bad predictor for classification')
+
+if plotfig:
+	plt.figure()
+	plt.plot(fpr, tpr) 
+	plt.plot([0,1], [0,1], color='grey', linestyle='--') 
+	plt.xlabel('False Positive Rate') 
+	plt.ylabel('True Positive Rate') 
+	plt.title('SVM ROC Curve')
+	plt.show() 
+	#results.boxplot()
+	#plt.show()
+	results.hist()
+	plt.show()
 

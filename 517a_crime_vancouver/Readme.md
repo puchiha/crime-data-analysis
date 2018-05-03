@@ -12,7 +12,7 @@ TYPE, YEAR, MONTH, DAY, HOUR, MINUTE, HUNDRED_BLOCK, NEIGHBOURHOOD, X, Y, LATITU
 
 The record consists of 9 different types of crimes in 24 neighborhoods and 21193 street names. 
 
-In this project we train different classifiers on the crime data to identify crimes relating to collisions (Vehicle Collision or Pedestrian Struck with Fatality or Injury) only. 
+In this project we train different classifiers on the crime data to identify crimes resulting in fatality (Homicide or Pedestrian Struck with Fatality) only. 
 
 #### Initial Data Analysis:
 

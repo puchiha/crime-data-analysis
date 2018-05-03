@@ -11,6 +11,7 @@ from keras.models import Model
 from keras.losses import mean_absolute_error, mean_squared_error, binary_crossentropy, categorical_crossentropy
 from keras.models import load_model
 from keras import regularizers
+from sklearn.utils import shuffle
 import numpy as np
 import csv
 import os
@@ -34,7 +35,11 @@ import pandas as pd
 #     else:
 #         y.append(0)
 
-data = pd.read_csv("/Users/puchiha/Documents/GitHub/crime_data_analysis/517a_crime_vancouver/raw_data/nn_processed.csv").as_matrix()
+data = pd.read_csv("/Users/puchiha/Documents/GitHub/crime_data_analysis/517a_crime_vancouver/raw_data/nn_processed-1.csv")#.as_matrix()
+data = shuffle(data)
+data = data.as_matrix()
+#print data.head(100)
+
 #X = data[:, [0,1,2,3,4,5,6,7,9]]
 X1 = data[:, 0]
 X2 = data[:, 1]
@@ -82,9 +87,9 @@ def data_generator(batchsize):
                 input1, input2, input3, input4, input5, input6, input7, input8, input9 = [], [], [], [], [], [], [], [], []
                 output = []
                 #input1 = []; input2 = []; output = []
-        yield package_batch([input1, input2, input3, input4, input5, input6, input7, input8, input9], output)
-        input1, input2, input3, input4, input5, input6, input7, input8, input9 = [], [], [], [], [], [], [], [], []
-        output = []
+        # yield package_batch([input1, input2, input3, input4, input5, input6, input7, input8, input9], output)
+        # input1, input2, input3, input4, input5, input6, input7, input8, input9 = [], [], [], [], [], [], [], [], []
+        # output = []
         #input1 = []; input2 = []; output = []
 #---------------------------------------------------------------------------------------MODEL---------------------------------------------------------------------------
 
@@ -102,14 +107,17 @@ x = concatenate([x1,x2,x3,x4,x5,x6,x7,x8,x9])
 
 
 
-h1 = Dense(10, activation = 'sigmoid')(x)
-
-out = Dense(1, activation = 'sigmoid', kernel_regularizer=regularizers.l2(0.01))(h1)
+h1 = Dense(10, activation = 'elu')(x)
+h2 = Dense(20, activation = 'elu')(h1)
+h3 = Dense(13, activation = 'elu')(h2)
+h4 = Dense(17, activation = 'elu')(h3)
+h5 = Dense(10, activation = 'elu')(h4)
+out = Dense(1, activation = 'elu', kernel_regularizer=regularizers.l2(0.01))(h5)
 
 model = Model(inputs=[x1, x2, x3, x4, x5, x6, x7, x8, x9], outputs=[out])
 model.compile(loss=mean_squared_error, optimizer='adagrad', metrics = ['accuracy'])
 
-model.fit_generator(data_generator(100), steps_per_epoch=50, epochs=100)
+model.fit_generator(data_generator(100), steps_per_epoch=500, epochs=250)
 print(model.summary())
 #--------------------------------------------------------------------------------------PREDICT--------------------------------------------------------------------------
 preds = []
