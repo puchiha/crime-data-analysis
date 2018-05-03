@@ -49,8 +49,8 @@ def g_process():
 	print("Learned kernel: {0}".format(str(clf.kernel_)))
 
 	y_pred = clf.predict(xTe)
-	print y_pred
-	print yTe
+	# print y_pred
+	# print yTe
 
 	acc = metrics.accuracy_score(yTe, y_pred)
 	#	acc  = cross_val_score(clf, xTe, yTe, cv=10)
@@ -70,9 +70,19 @@ def g_process():
 	print(grid_data.shape)
 	prob_grid = clf.predict_proba(grid_data)
 
+	#	---- STAT TEST ----
+	from scipy.stats import ttest_ind
+	results = pd.DataFrame({'preds': y_pred, 'yTe': yTe})
+
+	value, pvalue = ttest_ind(y_pred, yTe, equal_var = True)
+	print (value, pvalue)
+	if pvalue >= 0.05:
+		print('GP is a good predictor for classification')
+	else:
+		print('GP is a bad predictor for classification')
 	#prob_grid = prob_grid.reshape((f0.shape[0], f0.shape[1],-1))
 	
-	print prob_grid.shape, '\n --- \n' ,prob_grid.squeeze().shape
+	#print prob_grid.shape, '\n --- \n' ,prob_grid.squeeze().shape
 	
 	plt.figure(figsize=(6, 6))
 	plt.imshow(prob_grid.squeeze(), extent=(f0_min, f0_max, f1_min, f1_max),

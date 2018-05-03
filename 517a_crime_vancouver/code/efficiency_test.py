@@ -25,11 +25,11 @@ plotfig = True
 seed = 7
 # prepare models
 models = []
-models.append(('LR ', LogisticRegression()))
-models.append(('KNN', KNeighborsClassifier(n_neighbors = 2, algorithm = 'brute')))
-models.append(('D-Tree', DecisionTreeClassifier(min_samples_split = 2, random_state = 99)))
-models.append(('NB', GaussianNB()))
-models.append(('SVM', SVC(kernel='sigmoid', max_iter=1000, degree=2)))
+# models.append(('LR ', LogisticRegression()))
+# models.append(('KNN', KNeighborsClassifier(n_neighbors = 2, algorithm = 'brute')))
+# models.append(('D-Tree', DecisionTreeClassifier(min_samples_split = 2, random_state = 99)))
+# models.append(('NB', GaussianNB()))
+# models.append(('SVM', SVC(kernel='sigmoid', max_iter=1000, degree=2)))
 models.append(('GP', GaussianProcessClassifier(kernel = gp.kernels.ConstantKernel() + gp.kernels.Matern(length_scale=2, nu=3/2) + gp.kernels.WhiteKernel(noise_level=1))))
 
 # evaluate each model in turn
@@ -45,8 +45,7 @@ for name, model in models:
 	for i in range(10):
 		tic = time()
 		kfold = model_selection.KFold(n_splits=10, random_state=seed)
-		cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='accuracy')#scoring='roc_auc'
-		#results.append(cv_results)
+		cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='accuracy')
 		cv_mean.append(cv_results.mean())
 		cv_std.append(cv_results.std())
 		toc = time()

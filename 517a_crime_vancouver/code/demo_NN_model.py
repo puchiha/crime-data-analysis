@@ -117,7 +117,7 @@ out = Dense(1, activation = 'elu', kernel_regularizer=regularizers.l2(0.01))(h5)
 model = Model(inputs=[x1, x2, x3, x4, x5, x6, x7, x8, x9], outputs=[out])
 model.compile(loss=mean_squared_error, optimizer='adagrad', metrics = ['accuracy'])
 
-model.fit_generator(data_generator(100), steps_per_epoch=500, epochs=250)
+model.fit_generator(data_generator(100), steps_per_epoch=17, epochs=20)
 print(model.summary())
 #--------------------------------------------------------------------------------------PREDICT--------------------------------------------------------------------------
 preds = []
@@ -148,6 +148,16 @@ for i in range(0,len(X1)):
     ip = ([a, b, c, d, e, f, g, h, j])
     prediction=model.predict(ip , verbose = 0)
     preds.append(prediction[0][0])
+
+from scipy.stats import ttest_ind
+results = pd.DataFrame({'preds': preds, 'yTe': yTe})
+
+value, pvalue = ttest_ind(preds, yTe, equal_var = True)
+print (value, pvalue)
+if pvalue >= 0.05:
+    print('NN is a good predictor for classification')
+else:
+    print('NN is a bad predictor for classification')
 
 with open('output.tsv', 'wb') as tsvfile:
     tsvwriter = csv.writer(tsvfile, delimiter="\t")
