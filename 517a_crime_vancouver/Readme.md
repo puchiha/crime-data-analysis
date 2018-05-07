@@ -116,7 +116,7 @@ The processed data set has the following features:
  	8.54092698e-07]
 
 	These results suggest that much of the variance in the data can be compressed into a few dimensions.
-	![alt text](/plots/svd3.png)
+	![Alt text](/plots/svd3.png)
 
 	Neural Network
 		Training using 250 Epochs, 500 steps per epoch and 5 hidden layers with 10, 20, 13, 17, 10 neurons assigned randomly. 
