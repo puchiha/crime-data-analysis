@@ -65,7 +65,7 @@ The processed data set has the following features:
 	Logistic Regression
 		- Avg accuracy: 0.601822160415
 		- Area under roc curve: 0.70335792905
-![Alt text](https://github.com/puchiha/crime_data_analysis/tree/master/517a_crime_vancouver/plots/log_reg_ROC.png)
+![Alt text](https://raw.githubusercontent.com/puchiha/crime_data_analysis/master/517a_crime_vancouver/plots/log_reg_ROC.png)
 
 	Decision Tree
 		- Train Accuracy ::  0.9437
@@ -90,7 +90,7 @@ The processed data set has the following features:
 
 		Accuracy: 66.00% with 1000 data points
 
-![Alt text](/plots/GP_results.png)
+![Alt text](https://raw.githubusercontent.com/puchiha/crime_data_analysis/master/517a_crime_vancouver/plots/GP_results.png)
 
 	Support Vector Machines
 	        We have used an RBF kernel as well as a linear kernel
@@ -116,7 +116,7 @@ The processed data set has the following features:
  	8.54092698e-07]
 
 	These results suggest that much of the variance in the data can be compressed into a few dimensions.
-![Alt text](/plots/svd3.png)
+![Alt text](https://raw.githubusercontent.com/puchiha/crime_data_analysis/master/517a_crime_vancouver/plots/svd3.png)
 
 	Neural Network
 		Training using 250 Epochs, 500 steps per epoch and 5 hidden layers with 10, 20, 13, 17, 10 neurons assigned randomly. 
