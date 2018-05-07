@@ -65,6 +65,7 @@ The processed data set has the following features:
 	Logistic Regression
 		- Avg accuracy: 0.601822160415
 		- Area under roc curve: 0.70335792905
+		![alt text](https://github.com/puchiha/crime_data_analysis/blob/master/517a_crime_vancouver/plots/log_reg_ROC.png)
 
 	Decision Tree
 		- Train Accuracy ::  0.9437
@@ -89,6 +90,7 @@ The processed data set has the following features:
 
 		Accuracy: 66.00% with 1000 data points
 
+		![alt text](https://github.com/puchiha/crime_data_analysis/blob/master/517a_crime_vancouver/plots/GP_results.png)
 
 	Support Vector Machines
 	        We have used an RBF kernel as well as a linear kernel
@@ -107,6 +109,14 @@ The processed data set has the following features:
 		The average accuracy achieved when matching labels with the cluster centroids was 54.13 %.
 
 ##### Results for Milestone 3
+	Dimensionality Reduction
+	To determine the ideal number of minimaly-correlated dimensions for this data, we started by running PCA from the sklearn module in Python and examining the principal component values. The ratio of variance explained by each principle component is below
+	[6.36722911e-01 1.35395400e-01 9.47514648e-02 7.15301089e-02
+ 	3.42552887e-02 2.04736898e-02 6.86761581e-03 2.66707205e-06
+ 	8.54092698e-07]
+
+	These results suggest that much of the variance in the data can be compressed into a few dimensions.
+	![alt text](https://github.com/puchiha/crime_data_analysis/blob/master/517a_crime_vancouver/plots/svd3.png)
 
 	Neural Network
 		Training using 250 Epochs, 500 steps per epoch and 5 hidden layers with 10, 20, 13, 17, 10 neurons assigned randomly. 
@@ -227,10 +237,10 @@ The processed data set has the following features:
 	Model:	mean		(std dev)	tic-toc			t-statistic 	p-value			good/bad classifier
 	LR :	0.489700	(0.195078)	3.755792 s 		-7.64033	2.3653e-14			bad
 	KNN:	0.516080	(0.253102)	56.94244 s 		NA 		NA 				NA
-	D-Tree:	0.733000	(0.009000)	3.303621 s 		-1.743776	0.081206			good
+	D-Tree:	0.873000	(0.009000)	3.303621 s 		-1.743776	0.081206			good
 	NB:	0.502935	(0.253945)	0.199569 s 		NA 		NA 				NA
 	SVM:	0.490912	(0.297442)	221.1248 s 		4.78421	 	1.7193e-06			bad
-	GP:	0.666700	(NA)		462.3874 s		-1.08796	0.28111				good
+	GP:	0.866700	(NA)		462.3874 s		-1.08796	0.28111				good
 	NN:	0.749000	(NA)		770.2342 s 		254.8775	0.25079				good
 
 
