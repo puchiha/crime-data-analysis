@@ -65,7 +65,7 @@ The processed data set has the following features:
 	Logistic Regression
 		- Avg accuracy: 0.601822160415
 		- Area under roc curve: 0.70335792905
-![Alt text](/plots/log_reg_ROC.png)
+![Alt text](https://github.com/puchiha/crime_data_analysis/tree/master/517a_crime_vancouver/plots/log_reg_ROC.png)
 
 	Decision Tree
 		- Train Accuracy ::  0.9437
