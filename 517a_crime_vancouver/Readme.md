@@ -26,6 +26,10 @@ Running the analysis function inside data_analysis.py generates the different ty
 
 #### Data preprocessing
 From the 530652 records, we identified 22141 records that are related to collision. We randomly selected 27859 records to create a training set with 50000 records.
+Computing statistics on the dataset, we noticed that the distribution of crimes per day follows a normal distribution with a mean around 95 and a few outliers over 600. The time series plot demonstrates how the number of criminal activities varied within 2 standard deviations. Notice that there is a huge spike between the years 2011 and 2012 suggesting that there was a disproportionately more crime occuring during in that period.
+![Alt text](https://raw.githubusercontent.com/puchiha/crime_data_analysis/master/517a_crime_vancouver/plots/dist_crimes_per_day.png)
+![Alt text](https://raw.githubusercontent.com/puchiha/crime_data_analysis/master/517a_crime_vancouver/plots/time_series_analysis.png)
+
 
 The processed data set has the following features:
 	
